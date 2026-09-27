@@ -1,6 +1,14 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+/**
+ * Resolve API base URL using Vite environment variable: VITE_API_URL
+ * Normalizes trailing slashes and ensures /api path routing.
+ */
+const rawApiUrl = import.meta.env.VITE_API_URL;
+const normalizedBase = rawApiUrl ? rawApiUrl.replace(/\/+$/, '') : '';
+const API_BASE_URL = normalizedBase
+  ? (normalizedBase.endsWith('/api') ? normalizedBase : `${normalizedBase}/api`)
+  : '/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
