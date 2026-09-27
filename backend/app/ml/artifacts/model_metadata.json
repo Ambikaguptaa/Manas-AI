@@ -1,0 +1,106 @@
+{
+  "model_type": "RandomForestClassifier",
+  "library": "scikit-learn",
+  "dataset_type": "Synthetic Development Dataset (Educational / Academic Project)",
+  "disclaimer": "This model is calibrated on synthetic Likert feature distributions for academic demonstration. It does NOT represent clinical medical diagnosis.",
+  "metrics": {
+    "accuracy": 1.0,
+    "precision_weighted": 1.0,
+    "recall_weighted": 1.0,
+    "f1_score_weighted": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_score_macro": 1.0,
+    "confusion_matrix": [
+      [
+        60,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        60,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        60,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        60
+      ]
+    ],
+    "classification_report": {
+      "Balanced / Stable": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "Mild Mental Distress": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "Moderate Mental Distress": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "High Mental Distress": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 240.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 240.0
+      }
+    },
+    "test_sample_count": 240,
+    "train_sample_count": 960
+  },
+  "feature_importances": {
+    "overwhelm_score": 0.2349,
+    "mental_clarity_score": 0.2269,
+    "emotional_reactivity_score": 0.1579,
+    "restlessness_score": 0.1485,
+    "calmness_score": 0.1388,
+    "energy_score": 0.0326,
+    "motivation_score": 0.0261,
+    "routine_score": 0.0208,
+    "concentration_score": 0.0133
+  },
+  "training_info": {
+    "timestamp": "2026-09-09T14:31:01.830446",
+    "random_state": 42,
+    "n_estimators": 100,
+    "max_depth": 6,
+    "test_size": 0.2,
+    "classes": {
+      "0": "Balanced / Stable",
+      "1": "Mild Mental Distress",
+      "2": "Moderate Mental Distress",
+      "3": "High Mental Distress"
+    }
+  }
+}
