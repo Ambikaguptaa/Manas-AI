@@ -154,3 +154,36 @@ def test_non_diagnostic_language_guardrails():
     assert "schizophrenia" not in interp
     assert "this treatment will cure" not in interp
     assert "this proves that" not in interp
+
+
+def test_cors_headers_for_vercel_and_localhost():
+    """
+    Ensure CORS headers are returned for production Vercel and local development.
+    """
+    # Test GET /api/assessment/questions from Vercel production origin
+    res_vercel = client.get(
+        "/api/assessment/questions",
+        headers={"Origin": "https://manas-ai-kappa.vercel.app"}
+    )
+    assert res_vercel.status_code == 200
+    assert res_vercel.headers.get("access-control-allow-origin") == "https://manas-ai-kappa.vercel.app"
+
+    # Test OPTIONS preflight request from Vercel
+    res_opt = client.options(
+        "/api/assessment/questions",
+        headers={
+            "Origin": "https://manas-ai-kappa.vercel.app",
+            "Access-Control-Request-Method": "GET",
+            "Access-Control-Request-Headers": "content-type",
+        }
+    )
+    assert res_opt.status_code == 200
+    assert res_opt.headers.get("access-control-allow-origin") == "https://manas-ai-kappa.vercel.app"
+
+    # Test GET from local development origin
+    res_local = client.get(
+        "/api/assessment/questions",
+        headers={"Origin": "http://localhost:5173"}
+    )
+    assert res_local.status_code == 200
+    assert res_local.headers.get("access-control-allow-origin") == "http://localhost:5173"
